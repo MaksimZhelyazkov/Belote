@@ -462,14 +462,14 @@ class GameInterface {
         img.className = 'card-image';
 
         if (!isFaceUp) {
-            img.src = 'assets/cards/back.png';
+            img.src = './assets/cards/back.png';
             div.appendChild(img);
             return div;
         }
 
         const suitMap = { 'hearts': 'H', 'diamonds': 'D', 'clubs': 'C', 'spades': 'S' };
         const rankStr = card.rank === '10' ? '0' : card.rank;
-        img.src = `assets/cards/${rankStr}${suitMap[card.suit]}.png`;
+        img.src = `./assets/cards/${rankStr}${suitMap[card.suit]}.png`;
         img.alt = `${card.rank} of ${card.suit}`;
 
         div.setAttribute('data-suit', card.suit);
