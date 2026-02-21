@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Belote - Classic Game Tutorial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Main Game Area -->
+        <main id="game-container">
+            <!-- Opponent Top -->
+            <div id="player-top" class="player-area horizontal-player">
+                <div class="player-info">
+                    <div class="avatar">🤖</div>
+                    <span class="name">AI North</span>
+                </div>
+                <div class="hand" id="hand-top"></div>
+            </div>
+
+            <div class="middle-section">
+                <!-- Opponent Left -->
+                <div id="player-left" class="player-area vertical-player">
+                    <div class="player-info">
+                        <div class="avatar">🤖</div>
+                        <span class="name">AI West</span>
+                    </div>
+                    <div class="hand" id="hand-left"></div>
+                </div>
+
+                <!-- Table Center -->
+                <div id="table-center">
+                    <div class="table-felt">
+                        <div id="trick-area"></div>
+                        <div id="center-bidding-area" class="hidden">
+                            <h2 id="bidding-status">Waiting for bid...</h2>
+                            <div id="turn-up-card-container"></div>
+                            <div id="bidding-controls" class="hidden">
+                                <button id="btn-take" class="btn primary">Take</button>
+                                <button id="btn-pass" class="btn secondary">Pass</button>
+                                <button id="btn-next-round" class="btn primary hidden">Next Round</button>
+                                <div id="suit-selection" class="hidden">
+                                    <button class="btn-suit" data-suit="hearts">♥️</button>
+                                    <button class="btn-suit" data-suit="diamonds">♦️</button>
+                                    <button class="btn-suit" data-suit="clubs">♣️</button>
+                                    <button class="btn-suit" data-suit="spades">♠️</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Partner Right -->
+                <div id="player-right" class="player-area vertical-player">
+                    <div class="player-info">
+                        <div class="avatar">🤖</div>
+                        <span class="name">AI East (Partner)</span>
+                    </div>
+                    <div class="hand" id="hand-right"></div>
+                </div>
+            </div>
+
+            <!-- Human Player Bottom -->
+            <div id="player-bottom" class="player-area horizontal-player active-player">
+                <div class="player-info">
+                    <div class="avatar">👤</div>
+                    <span class="name">You</span>
+                </div>
+                <div class="hand" id="hand-bottom"></div>
+            </div>
+        </main>
+
+        <!-- UI Overlays -->
+        <aside id="reference-guide" class="glass-panel hidden">
+            <h3>Card Values</h3>
+            <div id="tracker-content"></div>
+        </aside>
+
+        <aside id="scoreboard" class="glass-panel">
+            <h3>Score</h3>
+            <div class="score-team">
+                <span>Us (NS):</span> <span id="score-ns">0</span>
+            </div>
+            <div class="score-team">
+                <span>Them (EW):</span> <span id="score-ew">0</span>
+            </div>
+            <div class="game-info">
+                <div id="current-trump">Trump: -</div>
+                <div id="current-phase">Phase: Dealing</div>
+            </div>
+        </aside>
+
+        <!-- Tutorial Modal -->
+        <div id="tutorial-overlay" class="modal-backdrop hidden">
+            <div class="modal glass-panel tutorial-modal">
+                <div class="modal-header">
+                    <h2>🎓 Tutor</h2>
+                </div>
+                <div class="modal-body" id="tutorial-message">
+                    Welcome to Belote! Let's learn to play.
+                </div>
+                <div class="modal-footer">
+                    <button id="btn-tutorial-ok" class="btn primary">Got it</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="game-controls">
+            <label class="toggle-switch">
+                <input type="checkbox" id="tutorial-toggle" checked>
+                <span class="slider"></span>
+                <span class="label-text">Tutorial Mode</span>
+            </label>
+            <button id="btn-start-game" class="btn primary">Start Game</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="bundle.js"></script>
+</body>
+
+</html>
